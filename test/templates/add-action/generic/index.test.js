@@ -16,14 +16,15 @@ const fs = require('fs')
 const yaml = require('js-yaml')
 const cloneDeep = require('lodash.clonedeep')
 
-const theGeneratorPath = require.resolve('../../../generators/add-action/generic')
 const Generator = require('yeoman-generator')
 
 const { constants } = require('@adobe/generator-app-common-lib')
 
-describe('prototype', () => {
+const GenericGenerator = require('../../../../templates/add-action/generic')
+
+describe.skip('prototype', () => {
   test('exports a yeoman generator', () => {
-    expect(require(theGeneratorPath).prototype).toBeInstanceOf(Generator)
+    expect(GenericGenerator.prototype).toBeInstanceOf(Generator)
   })
 })
 
@@ -76,7 +77,7 @@ describe('run', () => {
   test('--skip-prompt', async () => {
     const options = cloneDeep(global.basicGeneratorOptions)
     options['skip-prompt'] = true
-    await helpers.run(theGeneratorPath)
+    await helpers.run(GenericGenerator)
       .withOptions(options)
 
     // default
@@ -92,7 +93,7 @@ describe('run', () => {
   test('--skip-prompt, and action with default name already exists', async () => {
     const options = cloneDeep(global.basicGeneratorOptions)
     options['skip-prompt'] = true
-    await helpers.run(theGeneratorPath)
+    await helpers.run(GenericGenerator)
       .withOptions(options)
       .inTmpDir(dir => {
         fs.writeFileSync('ext.config.yaml', yaml.dump({
@@ -120,7 +121,7 @@ describe('run', () => {
   test('user input actionName=fakeAction', async () => {
     const options = cloneDeep(global.basicGeneratorOptions)
     options['skip-prompt'] = false
-    await helpers.run(theGeneratorPath)
+    await helpers.run(GenericGenerator)
       .withOptions(options)
       .withPrompts({ actionName: 'fakeAction' })
 

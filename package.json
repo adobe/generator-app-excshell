@@ -31,6 +31,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "jest": "^27",
+    "js-yaml": "^4.1.0",
     "stdout-stderr": "^0.1.13",
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^6.0.0",
@@ -38,8 +39,9 @@
     "lodash.clonedeep": "^4.5.0"
   },
   "dependencies": {
+    "@adobe/generator-app-common-lib": "https://github.com/adobe/generator-app-common-lib.git#27123e57d2d6ca891bcb1f85ed8eec4996269acc",
+    "lodash.camelcase": "^4.3.0",
     "upath": "^2.0.1",
-    "yeoman-generator": "^5.4.2",
-    "@adobe/generator-app-common-lib": "0.0.0"
+    "yeoman-generator": "^5.4.2"
   }
 }

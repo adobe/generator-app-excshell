@@ -15,14 +15,10 @@ module.exports = {
   verbose: true,
   setupFilesAfterEnv: ['./test/jest.setup.js'],
   collectCoverage: true,
-  collectCoverageFrom: [
-    'lib/**/*.js',
-    'generators/**/*.js',
-    '!generators/**/templates/**/*.js'
-  ],
+  collectCoverageFrom: [],
   testPathIgnorePatterns: [
-    '<rootDir>/generators/',
-    '<rootDir>/playground/'
+    '<rootDir>/node_modules/',
+    '<rootDir>/templates/'
   ],
   coverageThreshold: {
     global: {
