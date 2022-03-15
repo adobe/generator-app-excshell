@@ -20,7 +20,7 @@ const Generator = require('yeoman-generator')
 
 const { constants } = require('@adobe/generator-app-common-lib')
 
-const {addAction: { generic } } = require('../../../../index')
+const { addAction: { generic } } = require('../../../../index')
 
 describe('prototype', () => {
   test('exports a yeoman generator', () => {

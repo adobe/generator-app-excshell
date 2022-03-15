@@ -1,4 +1,2 @@
-templates/
-common-templates/
+templates/**/**/templates/
 node_modules/
-playground/
