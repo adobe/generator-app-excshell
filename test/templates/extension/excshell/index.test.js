@@ -14,7 +14,7 @@ governing permissions and limitations under the License.
 const helpers = require('yeoman-test')
 const path = require('path')
 
-const DxExcshell1 = require('../../../../templates/extension/excshell')
+const {extension: { excshell } } = require('../../../../index')
 const Generator = require('yeoman-generator')
 
 const composeWith = jest.spyOn(Generator.prototype, 'composeWith')
@@ -31,14 +31,14 @@ afterAll(() => {
 
 describe('prototype', () => {
   test('exports a yeoman generator', () => {
-    expect(DxExcshell1.prototype).toBeInstanceOf(Generator)
+    expect(excshell.prototype).toBeInstanceOf(Generator)
   })
 })
 
 describe('run', () => {
   test('test basic ext generator', async () => {
     const options = { 'skip-prompt': true }
-    await helpers.run(DxExcshell1)
+    await helpers.run(excshell)
       .withOptions(options)
     expect(composeWith).toHaveBeenCalledTimes(2)
     expect(composeWith).toHaveBeenCalledWith(expect.stringContaining(path.normalize('add-action/generic')), expect.any(Object))

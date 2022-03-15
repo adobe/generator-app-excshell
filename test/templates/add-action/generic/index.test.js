@@ -20,11 +20,11 @@ const Generator = require('yeoman-generator')
 
 const { constants } = require('@adobe/generator-app-common-lib')
 
-const GenericGenerator = require('../../../../templates/add-action/generic')
+const {addAction: { generic } } = require('../../../../index')
 
-describe.skip('prototype', () => {
+describe('prototype', () => {
   test('exports a yeoman generator', () => {
-    expect(GenericGenerator.prototype).toBeInstanceOf(Generator)
+    expect(generic.prototype).toBeInstanceOf(Generator)
   })
 })
 
@@ -77,7 +77,7 @@ describe('run', () => {
   test('--skip-prompt', async () => {
     const options = cloneDeep(global.basicGeneratorOptions)
     options['skip-prompt'] = true
-    await helpers.run(GenericGenerator)
+    await helpers.run(generic)
       .withOptions(options)
 
     // default
@@ -93,7 +93,7 @@ describe('run', () => {
   test('--skip-prompt, and action with default name already exists', async () => {
     const options = cloneDeep(global.basicGeneratorOptions)
     options['skip-prompt'] = true
-    await helpers.run(GenericGenerator)
+    await helpers.run(generic)
       .withOptions(options)
       .inTmpDir(dir => {
         fs.writeFileSync('ext.config.yaml', yaml.dump({
@@ -121,7 +121,7 @@ describe('run', () => {
   test('user input actionName=fakeAction', async () => {
     const options = cloneDeep(global.basicGeneratorOptions)
     options['skip-prompt'] = false
-    await helpers.run(GenericGenerator)
+    await helpers.run(generic)
       .withOptions(options)
       .withPrompts({ actionName: 'fakeAction' })
 
