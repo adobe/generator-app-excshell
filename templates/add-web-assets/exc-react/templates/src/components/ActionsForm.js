@@ -13,14 +13,12 @@ governing permissions and limitations under the License.
 
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import ErrorBoundary from 'react-error-boundary'
 import {
   Flex,
   Heading,
   Form,
   Picker,
   TextArea,
-  Button,
   ActionButton,
   StatusLight,
   ProgressCircle,
