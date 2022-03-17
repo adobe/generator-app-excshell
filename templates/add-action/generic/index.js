@@ -10,7 +10,7 @@ governing permissions and limitations under the License.
 */
 
 const path = require('path')
-const { constants, ActionGenerator } = require('@adobe/generator-app-common-lib')
+const { constants, ActionGenerator, commonTemplates } = require('@adobe/generator-app-common-lib')
 const { commonDependencyVersions } = constants
 
 class GenericGenerator extends ActionGenerator {
@@ -49,11 +49,11 @@ const { Core } = require('@adobe/aio-sdk')`,
   writing () {
     this.sourceRoot(path.join(__dirname, '.'))
 
-    this.addAction(this.props.actionName, './templates/stub-action.js', {
+    this.addAction(this.props.actionName, commonTemplates['stub-action'], {
       testFile: './templates/fetchExample.test.js',
-      sharedLibFile: './templates/utils.js',
-      sharedLibTestFile: './templates/utils.test.js',
-      e2eTestFile: './templates/stub-action.e2e.js',
+      sharedLibFile: commonTemplates.utils,
+      sharedLibTestFile: commonTemplates['utils.test'],
+      e2eTestFile: commonTemplates['stub-action.e2e'],
       tplContext: this.props,
       dependencies: {
         '@adobe/aio-sdk': commonDependencyVersions['@adobe/aio-sdk'],
