@@ -14,7 +14,7 @@ governing permissions and limitations under the License.
 const helpers = require('yeoman-test')
 const path = require('path')
 
-const { extension: { excshell } } = require('../../../../index')
+const excshell = require('../index')
 const Generator = require('yeoman-generator')
 
 const composeWith = jest.spyOn(Generator.prototype, 'composeWith')

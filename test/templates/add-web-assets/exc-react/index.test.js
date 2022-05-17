@@ -17,7 +17,7 @@ const fs = require('fs')
 const path = require('path')
 const cloneDeep = require('lodash.clonedeep')
 
-const { addWebAssets: { excReact } } = require('../../../../index')
+const excReact = require('../../../../templates/add-web-assets/exc-react')
 const Generator = require('yeoman-generator')
 
 describe('prototype', () => {
