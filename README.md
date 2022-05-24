@@ -19,7 +19,7 @@ governing permissions and limitations under the License.
 
 # generator-app-excshell
 
-Extensibility template for Experience Cloud Shell SPA
+Extensibility template for Experience Cloud Shell SPA, for App Builder
 
 # Contributing
 Contributions are welcomed! Read the [Contributing Guide](CONTRIBUTING.md) for more information.
