@@ -14,6 +14,8 @@ const path = require('path')
 const upath = require('upath')
 
 const { constants, utils } = require('@adobe/generator-app-common-lib')
+const genericAction = require('@adobe/generator-add-action-generic')
+const excReactWebAssets = require('@adobe/generator-add-web-assets-exc-react')
 const { runtimeManifestKey } = constants
 
 /*
@@ -45,7 +47,11 @@ class DxExcshell1 extends Generator {
     this.configName = 'dx/excshell/1'
 
     // generate the generic action
-    this.composeWith(path.join(__dirname, './templates/add-action/generic'), {
+    this.composeWith({
+      Generator: genericAction,
+      path: 'unknown'
+    },
+    {
       // forward needed args
       'skip-prompt': true, // do not ask for action name
       'action-folder': this.actionFolder,
@@ -54,7 +60,10 @@ class DxExcshell1 extends Generator {
     })
 
     // generate the UI
-    this.composeWith(path.join(__dirname, './templates/add-web-assets/exc-react'), {
+    this.composeWith({
+      Generator: excReactWebAssets,
+      path: 'unknown'
+    }, {
       // forward needed args
       'skip-prompt': this.options['skip-prompt'],
       'web-src-folder': this.webSrcFolder,

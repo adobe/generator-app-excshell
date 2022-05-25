@@ -12,7 +12,6 @@ governing permissions and limitations under the License.
 /* eslint-disable jest/expect-expect */ // => use assert
 
 const helpers = require('yeoman-test')
-const path = require('path')
 
 const excshell = require('../index')
 const Generator = require('yeoman-generator')
@@ -41,7 +40,17 @@ describe('run', () => {
     await helpers.run(excshell)
       .withOptions(options)
     expect(composeWith).toHaveBeenCalledTimes(2)
-    expect(composeWith).toHaveBeenCalledWith(expect.stringContaining(path.normalize('add-action/generic')), expect.any(Object))
-    expect(composeWith).toHaveBeenCalledWith(expect.stringContaining(path.normalize('add-web-assets/exc-react')), expect.any(Object))
+    expect(composeWith).toHaveBeenCalledWith(
+      expect.objectContaining({
+        Generator: expect.any(Generator.constructor),
+        path: 'unknown'
+      }),
+      expect.any(Object))
+    expect(composeWith).toHaveBeenCalledWith(
+      expect.objectContaining({
+        Generator: expect.any(Generator.constructor),
+        path: 'unknown'
+      }),
+      expect.any(Object))
   })
 })
