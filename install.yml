@@ -7,3 +7,5 @@ categories:
  
 extension:
   serviceCode: dx/excshell/1
+
+runtime: true
