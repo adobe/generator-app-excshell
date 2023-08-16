@@ -35,7 +35,7 @@ describe('prototype', () => {
 })
 
 describe('run', () => {
-  test('test basic ext generator', async () => {
+  test('basic ext generator', async () => {
     const options = { 'skip-prompt': true }
     await helpers.run(excshell)
       .withOptions(options)
