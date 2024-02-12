@@ -1,6 +1,6 @@
 {
   "name": "@adobe/generator-app-excshell",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Extensibility template for generator-aio-app",
   "main": "index.js",
   "engines": {
