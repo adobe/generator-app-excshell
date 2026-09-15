@@ -9,14 +9,12 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* eslint-disable jest/expect-expect */ // => use assert
+import helpers from 'yeoman-test'
 
-const helpers = require('yeoman-test')
+import excshell from '../index.js'
+import Generator from 'yeoman-generator'
 
-const excshell = require('../index')
-const Generator = require('yeoman-generator')
-
-const composeWith = jest.spyOn(Generator.prototype, 'composeWith')
+const composeWith = vi.spyOn(Generator.prototype, 'composeWith')
 beforeAll(() => {
   // mock implementations
   composeWith.mockReturnValue(undefined)
