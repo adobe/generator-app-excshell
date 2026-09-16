@@ -9,13 +9,13 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import Generator from 'yeoman-generator'
-import path from 'node:path'
-import upath from 'upath'
+const Generator = require('yeoman-generator')
+const path = require('path')
+const upath = require('upath')
 
-import { constants, utils } from '@adobe/generator-app-common-lib'
-import genericAction from '@adobe/generator-add-action-generic'
-import excReactWebAssets from '@adobe/generator-add-web-assets-exc-react'
+const { constants, utils } = require('@adobe/generator-app-common-lib')
+const genericAction = require('@adobe/generator-add-action-generic')
+const excReactWebAssets = require('@adobe/generator-add-web-assets-exc-react')
 const { runtimeManifestKey } = constants
 
 /*
@@ -105,4 +105,4 @@ class DxExcshell1 extends Generator {
   }
 }
 
-export default DxExcshell1
+module.exports = DxExcshell1
